@@ -8,3 +8,5 @@ interface Weather {
     lng: string;
   };
 }
+
+export { Weather };
