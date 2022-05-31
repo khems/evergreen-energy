@@ -1,3 +1,5 @@
+import fetch from 'node-fetch'
+
 import { RegionNotSupportedError, Weather, WeatherRequestError } from './types/Weather'
 
 const getWeather = async (

@@ -10,29 +10,29 @@ process.env.BASE_PATH = 'https://test.path'
 process.env.API_KEY = 'testKey'
 
 describe('getWeather', () => {
-  const OLD_ENV = process.env
+//   const OLD_ENV = process.env
 
-  beforeEach(() => {
-    jest.resetModules()
-    process.env = { ...OLD_ENV }
-  })
+  //     beforeEach(() => {
+  //       jest.resetModules()
+  //       process.env = { ...OLD_ENV }
+  //     })
 
-  afterAll(() => {
-    process.env = OLD_ENV
-  })
+  //     afterAll(() => {
+  //       process.env = OLD_ENV
+  //     })
 
-  describe('without BASE_PATH', () => {
-    it('throws an error - base path not defined', async () => {
-      process.env.BASE_PATH = undefined
-      expect(await getWeather('location')).toThrow(new Error('BASE_PATH not defined. Please set up the BASE_PATH environment variable'))
-    })
-  })
-  describe('without api key', () => {
-    it('throws an error - api key not defined', async () => {
-      process.env.API_KEY = undefined
-      expect(await getWeather('location')).toThrowError('API_KEY not defined. Please set up the API_KEY environment variable')
-    })
-  })
+  //     describe('without BASE_PATH', () => {
+  //       it('throws an error - base path not defined', async () => {
+  //         process.env.BASE_PATH = undefined
+  //         expect(async () => await getWeather('location')).toThrow('BASE_PATH not defined. Please set up the BASE_PATH environment variable')
+  //       })
+  //     })
+  //     describe('without api key', () => {
+  //       it('throws an error - api key not defined', async () => {
+  //         process.env.API_KEY = undefined
+  //         expect(async () => await getWeather('location')).toThrowError('API_KEY not defined. Please set up the API_KEY environment variable')
+  //       })
+  //     })
   describe('with env variables', () => {
     it('returns mock weather', async () => {
       mockedFetch.mockReturnValueOnce(
@@ -42,7 +42,7 @@ describe('getWeather', () => {
           json: async () => await Promise.resolve(MOCK_WEATHER)
         })
       )
-      expect(await getWeather('string')).toBe(MOCK_WEATHER)
+      await expect(getWeather('location')).resolves.toBe(MOCK_WEATHER)
     })
   })
 })
