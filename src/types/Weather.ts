@@ -20,4 +20,15 @@ interface Weather {
   }
 }
 
-export { Weather, WeatherApi }
+class RegionNotSupportedError extends Error {
+  constructor (message: string) {
+    super(message)
+    Object.setPrototypeOf(this, RegionNotSupportedError.prototype)
+  }
+}
+
+interface WeatherRequestError {
+  error: string
+}
+
+export { Weather, WeatherApi, WeatherRequestError, RegionNotSupportedError }

@@ -1,15 +1,4 @@
-import { Weather } from './types/Weather'
-
-class RegionNotSupportedError extends Error {
-  constructor (message: string) {
-    super(message)
-    Object.setPrototypeOf(this, RegionNotSupportedError.prototype)
-  }
-}
-
-interface WeatherRequestError {
-  error: string
-}
+import { RegionNotSupportedError, Weather, WeatherRequestError } from './types/Weather'
 
 const getWeather = async (
   location: string
@@ -17,13 +6,13 @@ const getWeather = async (
   const basePath = process.env.BASE_PATH
   const apiKey = process.env.API_KEY
   if (basePath === undefined) {
-    throw new Error(
-      'BASE_PATH not defined. Please set up the BASE_PATH envaironment variable'
+    throw Error(
+      'BASE_PATH not defined. Please set up the BASE_PATH environment variable'
     )
   }
   if (apiKey === undefined) {
     throw new Error(
-      'API_KEY not defined. Please set up the API_KEY envaironment variable'
+      'API_KEY not defined. Please set up the API_KEY environment variable'
     )
   }
 
