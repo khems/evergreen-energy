@@ -3,7 +3,7 @@ import { calculateHeatLoss, calculatePowerHeatLoss } from './heatLossCalculation
 describe('calculateHeatLoss', () => {
   describe('Negative value for heat loss', () => {
     it('throws an error - heat loss cannot be negative', () => {
-      expect(calculateHeatLoss(1, -1, 1)).toThrowError()
+      expect(() => calculateHeatLoss(1, -1, 1)).toThrow('Heating factor must be greater than zero')
     })
   })
   describe('All positive values', () => {
@@ -16,7 +16,7 @@ describe('calculateHeatLoss', () => {
 describe('calculatePowerHeatLoss', () => {
   describe('Negative value for heat loss', () => {
     it('throws an error - heat loss cannot be negative', () => {
-      expect(calculatePowerHeatLoss(1, -1, 1, 1)).toThrowError()
+      expect(() => calculatePowerHeatLoss(1, -1, 1, 1)).toThrow(Error)
     })
   })
   describe('All positive values', () => {
