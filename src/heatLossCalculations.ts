@@ -1,6 +1,8 @@
 /**
  * Calculates the heat loss based on the floor area, heating factor and insulation
  * factor of the property
+ * TODO make this take a house so variables don't have to be in the correct positions
+ * (wouldn't matter for this function but good practice)
  * @param floorArea
  * @param heatingFactor
  * @param insulationFactor
@@ -23,6 +25,14 @@ const calculateHeatLoss = (
   return floorArea * heatingFactor * insulationFactor
 }
 
+/**
+ * TODO make this take heat loss rather than four variables
+ * @param floorArea
+ * @param heatingFactor
+ * @param insulationFactor
+ * @param heatingDegreeDays
+ * @returns Power heat loss kW
+ */
 const calculatePowerHeatLoss = (
   floorArea: number,
   heatingFactor: number,
