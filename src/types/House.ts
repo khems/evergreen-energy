@@ -1,3 +1,5 @@
+import { RegionNotSupportedError } from './Weather'
+
 interface House {
   submissionId: string
   designRegion: string
@@ -7,4 +9,8 @@ interface House {
   insulationFactor: number
 }
 
-export { House }
+interface HouseWeather extends House {
+  degreeDays: number | RegionNotSupportedError
+}
+
+export { House, HouseWeather }
