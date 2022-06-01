@@ -1,5 +1,5 @@
 import { getWeather } from './api'
-import { MOCK_WEATHER } from './testData/weather'
+import { MOCK_WEATHER } from '../testData/weather'
 import fetch from 'node-fetch'
 
 jest.mock('node-fetch')

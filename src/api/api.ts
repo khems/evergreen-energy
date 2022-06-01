@@ -1,10 +1,10 @@
 import fetch from 'node-fetch'
 
-import { RegionNotSupportedError, Weather, WeatherRequestError } from './types/Weather'
+import { RegionNotSupportedError, WeatherApi, WeatherRequestError } from '../types/Weather'
 
 const getWeather = async (
   location: string
-): Promise<Weather | RegionNotSupportedError> => {
+): Promise<WeatherApi | RegionNotSupportedError> => {
   const basePath = process.env.BASE_PATH
   const apiKey = process.env.API_KEY
   if (basePath === undefined) {
