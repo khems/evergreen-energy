@@ -10,14 +10,12 @@ interface WeatherApi {
 }
 
 interface Weather {
-  location: {
-    location: string
-    degreeDays: number
-    groundTemp: number
-    postcode: string
-    lat: number
-    lng: number
-  }
+  location: string
+  degreeDays: number
+  groundTemp: number
+  postcode: string
+  lat: number
+  lng: number
 }
 
 class RegionNotSupportedError extends Error {
